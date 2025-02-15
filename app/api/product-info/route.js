@@ -1,5 +1,6 @@
 export async function GET(req) {
-  const { barcode } = req.query;
+  const url = new URL(req.url, `http://${req.headers.host}`);
+  const barcode = url.searchParams.get('barcode');
 
   if (!barcode) {
     return new Response(JSON.stringify({ message: "Barcode is required" }), {
@@ -8,26 +9,25 @@ export async function GET(req) {
   }
 
   const apiKey = "e86vw366lq1kwy3a45ujegfrjha6yq";  // free API key
-  const url = new URL("https://api.barcodelookup.com/v3/products");
-  url.searchParams.append('barcode', barcode);
-  url.searchParams.append('key', apiKey);
+  const apiUrl = new URL("https://api.barcodelookup.com/v3/products");
+  apiUrl.searchParams.append('barcode', barcode);
+  apiUrl.searchParams.append('key', apiKey);
 
   try {
-    const response = await fetch(url.toString());
+    const response = await fetch(apiUrl.toString());
+
+    const responseText = await response.text();
+    console.log('API Response:', responseText);
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error("Error Response:", errorText);
+      console.error("Error Response:", responseText);
       return new Response(JSON.stringify({ message: "Error fetching product details" }), { status: 500 });
     }
 
-    const data = await response.json();
+    const data = JSON.parse(responseText);
 
-    console.log(data);
     if (data.products && data.products.length > 0) {
       const product = data.products[0];
-
-      // Return the brand of the product
       return new Response(
         JSON.stringify({
           brand: product.brand,
