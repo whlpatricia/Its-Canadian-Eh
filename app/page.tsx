@@ -14,6 +14,8 @@ export default function HomePage() {
     console.log(result)
   }
 
+  const isPromptEmpty = prompt.trim() === "";
+
   const askGemini = async (): Promise<void> => {
     console.log("get responses from gemini")
     const body = {
@@ -55,7 +57,7 @@ export default function HomePage() {
           value={prompt} // ✅ Bind input value
           onChange={(e) => setPrompt(e.target.value)}
         ></textarea>
-        <button onClick={askGemini}>Send</button>
+        <button onClick={askGemini} disabled={isPromptEmpty}>Send</button>
       </div>
       <p>Entered Prompt: {prompt}</p> {/* Display input for testing */}
     </div>
