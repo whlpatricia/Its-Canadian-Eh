@@ -45,9 +45,21 @@ export default function HomePage() {
         <h1 className={styles.title}>It's Canadian, Eh?</h1>
       </div>
       <div className={styles["prompt-container"]}>
-        <p>Give me a grocery list of only items made in Canada.</p>
-        <p>
-          What country makes <span id={styles["food-item"]}>kitkat</span>
+        <p className={styles.prompt}>
+          Give me a grocery list of only items made in Canada.
+        </p>
+        <p className={styles.prompt}>
+          What country makes <span id={styles["food-item"]}>kitkat</span>?
+        </p>
+        <p className={styles.prompt}>Show me a list of Canadian-made snacks.</p>
+        <p className={styles.prompt}>
+          What are the best Canadian brands for milk?
+        </p>
+        <p className={styles.prompt}>
+          Give me a list of Canadian gluten-free food products.
+        </p>
+        <p className={styles.prompt}>
+          What Canadian companies offer fair-trade chocolate?
         </p>
       </div>
       <NextLink href="/results">

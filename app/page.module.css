@@ -30,21 +30,38 @@
 
 .prompt-container {
   height: 600px;
+  display: flex; /* Use flexbox to center the items */
+  flex-direction: column; /* Stack the items vertically */
+  justify-content: center; /* Vertically center the items */
+  align-items: center; /* Horizontally center the items */
+  gap: 20px; /* Adds space between rows */
+  padding: 10px; /* Optional: Adds padding around the container */
+  overflow-y: auto; /* Allows scrolling if content exceeds height */
+}
+
+.prompt {
+  width: 80%; /* Adjust the width of each prompt */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: center;
 }
 
 #food-item {
-  color: gray; /* Makes KitKat text gray */
-  position: relative;
+  color: gray; /* Make the text gray */
+  position: relative; /* Needed for the underline */
+  display: inline-block; /* Ensures correct width behavior */
 }
 
-.food-item::after {
+#food-item::after {
   content: ""; /* Pseudo-element for custom underline */
   position: absolute;
-  left: -5px; /* Extend underline slightly before text */
-  right: -5px; /* Extend underline slightly after text */
-  bottom: -2px; /* Position the underline slightly below text */
-  height: 2px; /* Thickness of the underline */
-  background-color: black; /* Black underline */
+  left: -10%; /* Extend the underline to the left */
+  right: -10%; /* Extend the underline to the right */
+  bottom: -3px; /* Position the underline slightly below the text */
+  height: 1px; /* Thickness of the underline */
+  background-color: black; /* Make the underline black */
 }
 
 .barcode-button {
