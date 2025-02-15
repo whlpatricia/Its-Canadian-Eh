@@ -14,7 +14,7 @@ export default function HomePage() {
 
   return (
     <div className={styles.page}>
-      <h1>Hello</h1>
+      <h1>Its Canadian Eh!</h1>
       <NextLink href="/results"><button onClick={ScanBarcode}>Scan Barcode</button></NextLink>
       <input placeholder="Input something for GPT" /> 
     </div>
