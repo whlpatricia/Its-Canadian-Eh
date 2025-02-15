@@ -1,19 +1,22 @@
-"use client";
+"use client"
 
 import styles from "./page.module.css";
+import NextLink from 'next/link';
 
 export default function HomePage() {
 
-  const ScanBarcode = (): void => {
+  const ScanBarcode = async (): Promise<void> => {
     console.log("barcode is scanned");
-    // Navigate to the result page after scanning
+    const response = await fetch('/api/process_barcode'); // Replace with your API endpoint
+    const result = await response.json();
+    console.log(result);
   };
 
   return (
     <div className={styles.page}>
       <h1>Hello</h1>
-      <button onClick={ScanBarcode}>Scan Barcode</button>
-      <input placeholder="Input something for GPT" />
+      <NextLink href="/results"><button onClick={ScanBarcode}>Scan Barcode</button></NextLink>
+      <input placeholder="Input something for GPT" /> 
     </div>
   );
 }
