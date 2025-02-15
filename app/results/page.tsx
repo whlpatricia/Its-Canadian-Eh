@@ -77,6 +77,8 @@
 "use client"
 interface ProductDetails {
   brand: string;
+  title: string;
+  images: string[];
 }
 
 import React, { useState } from 'react';
@@ -99,7 +101,6 @@ const App: React.FC = () => {
     setLoading(true);
     try {
       const response = await fetch(`/api/product-info?barcode=${barcode}`);
-      console.log(response);
       const data = await response.json();
 
       if (response.ok) {
@@ -136,6 +137,20 @@ const App: React.FC = () => {
         {productDetails && (
           <div className="product-details">
             <h2>{productDetails.brand}</h2>
+            <h2>{productDetails.title}</h2>
+             {/* Display images if available */}
+              {productDetails.images && productDetails.images.length > 0 && (
+                <div className="product-images">
+                  {productDetails.images.map((imgUrl, index) => (
+                    <img 
+                      key={index} 
+                      src={imgUrl} 
+                      alt={`Product Image ${index + 1}`} 
+                      style={{ width: '400px', height: 'auto', margin: '5px' }}  // Set image size here
+                    />
+                  ))}
+                </div>
+              )}
           </div>
         )}
       </div>

@@ -17,7 +17,6 @@ export async function GET(req) {
     const response = await fetch(apiUrl.toString());
 
     const responseText = await response.text();
-    console.log('API Response:', responseText);
 
     if (!response.ok) {
       console.error("Error Response:", responseText);
@@ -31,6 +30,8 @@ export async function GET(req) {
       return new Response(
         JSON.stringify({
           brand: product.brand,
+          title: product.title,
+          images: product.images || [],  // Return all images as an array
         }),
         { status: 200 }
       );
