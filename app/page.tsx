@@ -21,7 +21,7 @@ export default function HomePage() {
     }
 
     try {
-      const response = await fetch(`./api/geminiResponse`, {
+      const response = await fetch(`./api/gemini?mode=chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
