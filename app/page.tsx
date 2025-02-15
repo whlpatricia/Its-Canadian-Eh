@@ -41,12 +41,23 @@ export default function HomePage() {
 
   return (
     <div className={styles.page}>
-      <h1>Hello</h1>
+      <div className={styles["title-box"]}>
+        <h1 className={styles.title}>It's Canadian, Eh?</h1>
+      </div>
+      <div className={styles["prompt-container"]}>
+        <p>Give me a grocery list of only items made in Canada.</p>
+        <p>
+          What country makes <span id={styles["food-item"]}>kitkat</span>
+        </p>
+      </div>
       <NextLink href="/results">
-        <button onClick={ScanBarcode}>Scan Barcode</button>
+        <button className={styles["barcode-button"]} onClick={ScanBarcode}>
+          Scan Barcode
+        </button>
       </NextLink>
-      <div>
+      <div className={styles["chatbox-container"]}>
         <textarea
+          className={styles.chatbox}
           id="promptBox"
           rows={5} // ✅ Use {1} instead of "1"
           cols={50}
@@ -54,9 +65,11 @@ export default function HomePage() {
           value={prompt} // ✅ Bind input value
           onChange={(e) => setPrompt(e.target.value)}
         ></textarea>
-        <button onClick={askGemini}>Send</button>
+        <button className={styles["send-button"]} onClick={askGemini}>
+          <img src="" alt="" />
+          Send
+        </button>
       </div>
-      <p>Entered Prompt: {prompt}</p> {/* Display input for testing */}
     </div>
   )
 }
