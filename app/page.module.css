@@ -38,6 +38,7 @@
   gap: 20px; /* Adds space between rows */
   padding: 10px; /* Optional: Adds padding around the container */
   overflow-y: auto; /* Allows scrolling if content exceeds height */
+  position: relative;
 }
 
 .prompt {
@@ -67,18 +68,19 @@
 }
 
 .barcode-button {
-  background-color: #fc544f;
+  /* background-color: #fc544f; */
+  background-color: #ad2e24;
   color: #f5f0f6;
   border: none;
-  padding: 15px 20px;
+  padding: 5px 30px 32px 30px;
   cursor: pointer;
-  border-radius: 50px;
+  border-radius: 40px;
   font-size: 1.1rem;
   font-weight: 800;
   position: absolute;
-  bottom: 105px;
-  right: 10px;
-  box-shadow: 1px 5px 5px #b64643;
+  bottom: 85px;
+  right: 10.5px;
+  /* box-shadow: 1px 5px 5px #b64643; */
   z-index: 1;
 }
 
