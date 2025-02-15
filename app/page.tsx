@@ -3,9 +3,15 @@
 import styles from "./page.module.css"
 import NextLink from "next/link"
 import { useState } from "react"
+import Results from "./results/page"
+
+export interface ResponseData {
+  message: string;
+}
 
 export default function HomePage() {
   const [prompt, setPrompt] = useState("")
+  const [responseData, setResponseData] = useState<ResponseData | null>(null);
 
   const ScanBarcode = async (): Promise<void> => {
     console.log("barcode is scanned")
@@ -23,7 +29,6 @@ export default function HomePage() {
     }
 
     try {
-
       const response = await fetch(`./api/gemini?mode=chat`, {
         method: "POST",
         headers: {
@@ -36,6 +41,7 @@ export default function HomePage() {
         throw new Error(`Error: ${response.statusText}`)
       }
       const result = await response.json()
+      setResponseData(result);
       console.log(result.message)
     } catch (error) {
       console.error({ error: `Error in askGemini: ${error}` })
@@ -60,6 +66,7 @@ export default function HomePage() {
         <button onClick={askGemini} disabled={isPromptEmpty}>Send</button>
       </div>
       <p>Entered Prompt: {prompt}</p> {/* Display input for testing */}
+      <Results responseData={responseData} />
     </div>
   )
 }
