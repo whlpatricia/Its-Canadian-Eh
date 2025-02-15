@@ -3,19 +3,9 @@
 import styles from "./page.module.css"
 import NextLink from "next/link"
 import { useState } from "react"
-import dotenv from "dotenv"
-
-dotenv.config()
-
-const geminiURL = process.env.NEXT_PUBLIC_GEMINI_URL
-const apiKey = process.env.NEXT_PUBLIC_API_KEY
 
 export default function HomePage() {
   const [prompt, setPrompt] = useState("")
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setPrompt(e.target.value)
-  }
 
   const ScanBarcode = async (): Promise<void> => {
     console.log("barcode is scanned")
@@ -27,15 +17,11 @@ export default function HomePage() {
   const askGemini = async (): Promise<void> => {
     console.log("get responses from gemini")
     const body = {
-      contents: [
-        {
-          parts: [{ text: prompt }],
-        },
-      ],
+      prompt: prompt,
     }
 
     try {
-      const response = await fetch(`${geminiURL}?key=${apiKey}`, {
+      const response = await fetch(`./api/geminiResponse`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -47,7 +33,7 @@ export default function HomePage() {
         throw new Error(`Error: ${response.statusText}`)
       }
       const result = await response.json()
-      console.log(result.candidates[0].content.parts[0].text)
+      console.log(result.message)
     } catch (error) {
       console.error({ error: `Error in askGemini: ${error}` })
     }
