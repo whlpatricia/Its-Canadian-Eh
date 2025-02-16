@@ -44,7 +44,7 @@ const Scanner = ({
     decoders = defaultDecoders,
     locate = true,
 }) => {
-    const { setTitle, setBrand, setResponseMessage } = useResponse();
+    const { setTitle, setBrand, setResponseMessage, setPromptProp } = useResponse();
     const router = useRouter();
 
     const scanSuccess = useCallback(async (barcode) => {
@@ -80,6 +80,7 @@ const Scanner = ({
             const geminiResult = await geminiResponse.json();
             console.log(geminiResult.message);
             setResponseMessage(geminiResult.message);
+            setPromptProp("nothing");
 
             // redirect to results page
             router.push("/results");

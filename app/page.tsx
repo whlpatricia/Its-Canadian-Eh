@@ -11,6 +11,7 @@ export default function HomePage() {
   const { setResponseMessage } = useResponse();
   const router = useRouter()
   const [prompt, setPrompt] = useState("")
+  const { setPromptProp } = useResponse();
 
   const ScanBarcode = async (): Promise<void> => {
     console.log("barcode is scanned")
@@ -48,6 +49,7 @@ export default function HomePage() {
       const result = await response.json()
       console.log(result.message)
       setResponseMessage(result.message);
+      setPromptProp(prompt);
       router.push("/results");
     } catch (error) {
       console.error({ error: `Error in askGemini: ${error}` })
@@ -57,7 +59,7 @@ export default function HomePage() {
   return (
     <div className={styles.page}>
       <div className={styles["title-box"]}>
-        <h1 className={styles.title}>Its Canadian, Eh?</h1>
+        <h1 className={styles.title}>It's Canadian, Eh?</h1>
       </div>
       <div className={styles["prompt-container"]}>
         <p
