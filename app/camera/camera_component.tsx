@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect} from 'react';
 import Quagga from '@ericblade/quagga2';
 import Result from './results';
 import Scanner from './scanner'
