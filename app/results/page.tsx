@@ -13,7 +13,6 @@ import Modal from "react-modal"
 
 const App: React.FC = () => {
   const router = useRouter()
-  const { query } = router
   const [barcode, setBarcode] = useState<string>('');
   const [productDetails, setProductDetails] = useState<ProductDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
