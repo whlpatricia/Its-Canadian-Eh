@@ -4,12 +4,11 @@ import Result from './results';
 import Scanner from './scanner'
 
 const CameraComponent = () => {
-    const [scanning, setScanning] = useState(false); // toggleable state for "should render scanner"
+    // const [scanning, setScanning] = useState(false); // toggleable state for "should render scanner"
     const [cameras, setCameras] = useState([]); // array of available cameras, as returned by Quagga.CameraAccess.enumerateVideoDevices()
     const [cameraId, setCameraId] = useState(null); // id of the active camera device
     const [cameraError, setCameraError] = useState(null); // error message from failing to access the camera
     const [results, setResults] = useState([]); // list of scanned results
-    const [torchOn, setTorch] = useState(false); // toggleable state for "should torch be on"
     const scannerRef = useRef(null); // reference to the scanner element in the DOM
 
     useEffect(() => {
@@ -52,16 +51,6 @@ const CameraComponent = () => {
         };
     }, []);
 
-    const onTorchClick = useCallback(() => {
-        const torch = !torchOn;
-        setTorch(torch);
-        if (torch) {
-            Quagga.CameraAccess.enableTorch();
-        } else {
-            Quagga.CameraAccess.disableTorch();
-        }
-    }, [torchOn, setTorch]);
-
     return (
         <div>
             {cameraError ? <p>ERROR INITIALIZING CAMERA ${JSON.stringify(cameraError)} -- DO YOU HAVE PERMISSION?</p> : null}
@@ -76,8 +65,7 @@ const CameraComponent = () => {
                     </select>
                 </form>
             }
-            <button onClick={onTorchClick}>{torchOn ? 'Disable Torch' : 'Enable Torch'}</button>
-            <button onClick={() => setScanning(!scanning) }>{scanning ? 'Stop' : 'Start'}</button>
+            {/* <button onClick={() => setScanning(!scanning) }>{scanning ? 'Stop' : 'Start'}</button> */}
             <ul className="results">
                 {results.map((result) => (result.codeResult && <Result key={result.codeResult.code} result={result} />))}
             </ul>
@@ -87,7 +75,7 @@ const CameraComponent = () => {
                     top: '0px',
                     border: '3px solid green',
                 }} width="640" height="480" />
-                {scanning ? <Scanner scannerRef={scannerRef} cameraId={cameraId} onDetected={(result) => setResults([...results, result])} /> : null}
+                {<Scanner scannerRef={scannerRef} cameraId={cameraId} onDetected={(result) => setResults([...results, result])} /> }
             </div>
         </div>
     );
