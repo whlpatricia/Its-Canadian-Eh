@@ -67,21 +67,26 @@
   background-color: black; /* Make the underline black */
 }
 
+.button-chatbox {
+  position: relative;
+  height: 180px;
+}
+
 .barcode-button {
   /* background-color: #fc544f; */
   background-color: #ad2e24;
   color: #f5f0f6;
   border: none;
-  padding: 5px 30px 32px 30px;
+  padding: 5px 30px 3.5vh 30px;
   cursor: pointer;
   border-radius: 40px;
   font-size: 1.1rem;
   font-weight: 800;
   position: absolute;
-  bottom: 85px;
+  bottom: 10.5vh;
   right: 10.5px;
   /* box-shadow: 1px 5px 5px #b64643; */
-  z-index: 1;
+  z-index: -1;
 }
 
 .barcode-button:hover {
@@ -89,7 +94,8 @@
 }
 
 .chatbox-container {
-  height: 150px;
+  height: 12vh;
+  bottom: 0;
   border: 1px solid #ddd;
   border-radius: 5px;
   margin: 0px 10px 10px;
@@ -99,6 +105,16 @@
   padding: 10px;
   background-color: white;
   z-index: 2;
+}
+
+@media (max-width: 600px) {
+  /* Small screens */
+  .chat-container {
+    height: 60vh;
+  }
+  .button {
+    bottom: 80px; /* Reduce spacing for smaller screens */
+  }
 }
 
 .chatbox {

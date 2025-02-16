@@ -98,31 +98,33 @@ export default function HomePage() {
           What Canadian companies offer fair-trade chocolate?
         </p>
       </div>
-      <NextLink href="/results">
-        <button className={styles["barcode-button"]} onClick={ScanBarcode}>
-          Scan Barcode
-        </button>
-      </NextLink>
-      <div className={styles["chatbox-container"]}>
-        <textarea
-          className={styles.chatbox}
-          id="promptBox"
-          rows={2} // ✅ Use {1} instead of "1"
-          cols={50}
-          placeholder="Ask your question..."
-          value={prompt} // ✅ Bind input value
-          onChange={(e) => setPrompt(e.target.value)}
-        ></textarea>
-        <button className={styles["send-button"]} onClick={askGemini}>
-          <div className={styles["send-button-wrapper"]}>
-            <img
-              src="/maple_leaf.png"
-              alt="Maple Leaf"
-              style={{ width: "24px", height: "24px" }}
-            />
-            <div className={styles["send-button-text"]}>Send</div>
-          </div>
-        </button>
+      <div className={styles["button-chatbox"]}>
+        <NextLink href="/results">
+          <button className={styles["barcode-button"]} onClick={ScanBarcode}>
+            Scan Barcode
+          </button>
+        </NextLink>
+        <div className={styles["chatbox-container"]}>
+          <textarea
+            className={styles.chatbox}
+            id="promptBox"
+            rows={2} // ✅ Use {1} instead of "1"
+            cols={50}
+            placeholder="Ask your question..."
+            value={prompt} // ✅ Bind input value
+            onChange={(e) => setPrompt(e.target.value)}
+          ></textarea>
+          <button className={styles["send-button"]} onClick={askGemini}>
+            <div className={styles["send-button-wrapper"]}>
+              <img
+                src="/maple_leaf.png"
+                alt="Maple Leaf"
+                style={{ width: "24px", height: "24px" }}
+              />
+              <div className={styles["send-button-text"]}>Send</div>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   )
