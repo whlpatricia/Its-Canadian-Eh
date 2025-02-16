@@ -1,0 +1,249 @@
+/* page.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+.page {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.modal-back {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  background: #ffffff; 
+  color: #921e1a; 
+  font-size: 0.9rem;
+  font-weight: 1000;
+  font-family: Quicksand;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  transition: background 0.2s ease-in-out;
+  border: none;
+}
+
+/* Product details and images */
+.product-details h2 {
+  font-size: 1.5rem;
+  color: black;
+  text-align: center;
+}
+
+.product-images {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.product-images img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Button and input styles */
+.scan-btn {
+  background-color: white;
+  color: red;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.scan-btn:hover {
+  background-color: darkred;
+}
+
+.barcode-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid red;
+  border-radius: 5px;
+  width: 250px;
+  text-align: center;
+}
+
+.barcode-input:focus {
+  outline: none;
+  border-color: darkred;
+}
+
+
+.page {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-box {
+  height: 11%;
+  background-color: #ad2e24;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  color: #f5f0f6;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding: 50px 0;
+}
+
+.prompt-container {
+  height: 1000px;
+  display: flex; /* Use flexbox to center the items */
+  flex-direction: column; /* Stack the items vertically */
+  justify-content: center; /* Vertically center the items */
+  align-items: center; /* Horizontally center the items */
+  gap: 20px; /* Adds space between rows */
+  padding: 10px; /* Optional: Adds padding around the container */
+  overflow-y: auto; /* Allows scrolling if content exceeds height */
+  position: relative;
+}
+
+.prompt {
+  width: 80%; /* Adjust the width of each prompt */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-weight: 400;
+}
+
+#food-item {
+  color: gray; /* Make the text gray */
+  position: relative; /* Needed for the underline */
+  display: inline-block; /* Ensures correct width behavior */
+}
+
+#food-item::after {
+  content: ""; /* Pseudo-element for custom underline */
+  position: absolute;
+  left: -10%; /* Extend the underline to the left */
+  right: -10%; /* Extend the underline to the right */
+  bottom: -3px; /* Position the underline slightly below the text */
+  height: 1px; /* Thickness of the underline */
+  background-color: black; /* Make the underline black */
+}
+
+.button-chatbox {
+  z-index: 3;
+  position: relative;
+  height: 180px;
+}
+
+.prompt-text {
+  background-color: #f5f0f6;
+  color: #ad2e24;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  position: absolute;
+  top: 22vh;
+  right: 11px;
+  z-index: 1;
+}
+
+.result-text {
+  background-color: #ad2e24;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  position: absolute;
+  top: 40vh;
+  left: 11px;
+  z-index: 1;
+}
+
+.chatbox-container {
+  height: 12vh;
+  bottom: 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 0px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space between textarea and button */
+  padding: 10px;
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+}
+
+.prompt-text, .result-text {
+  display: block;
+  max-width: 50%;
+  word-wrap: break-word;
+  margin: 0 auto 1rem;  /* Center align and add bottom margin */
+}
+
+@media (max-width: 600px) {
+  /* Small screens */
+  .chat-container {
+    height: 60vh;
+  }
+  .button {
+    bottom: 80px; /* Reduce spacing for smaller screens */
+  }
+}
+
+.chatbox {
+  width: 100%;
+  height: 70%;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: none;
+  padding: 5px;
+  outline: none;
+}
+
+.send-button {
+  position: absolute;
+  bottom: 2vw;
+  right: 1vh;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #921e1a;
+}
+
+.send-button-wrapper {
+  display: flex;
+  border: 1px solid #ddd;
+  background: #f2f2f2;
+  padding: 1px 4px 1px 1px;
+  border-radius: 5px;
+}
+
+.send-button-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
