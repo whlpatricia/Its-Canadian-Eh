@@ -7,12 +7,10 @@ interface ProductDetails {
 
 import React, { useState, useEffect, useRef} from 'react';
 import NextLink from "next/link"
-import { useRouter } from 'next/router'
 import styles from "./page.module.css"
 import Modal from "react-modal"
 
 const App: React.FC = () => {
-  const router = useRouter()
   const [barcode, setBarcode] = useState<string>('');
   const [productDetails, setProductDetails] = useState<ProductDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
