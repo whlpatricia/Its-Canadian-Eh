@@ -1,0 +1,64 @@
+/* Modal Background */
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(75, 75, 75, 0.5); /* Gray with opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    z-index: 50;
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 24rem; /* Equivalent to w-96 */
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  /* Modal Title */
+  .modal-title {
+    font-size: 1.5rem; /* Equivalent to text-2xl */
+    font-weight: bold;
+    color: #1f2937; /* Gray-900 */
+  }
+  
+  /* Modal Body */
+  .modal-body {
+    margin-top: 0.5rem;
+    padding: 1rem 1.75rem;
+    font-size: 1.125rem; /* Equivalent to text-lg */
+    color: #6b7280; /* Gray-500 */
+  }
+  
+  /* Close Button */
+  .modal-close {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #3b82f6; /* Blue-500 */
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .modal-close:hover {
+    background-color: #9ca3af; /* Gray-400 */
+  }
+  
+  .modal-close:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(156, 163, 175, 0.5);
+  }
+  

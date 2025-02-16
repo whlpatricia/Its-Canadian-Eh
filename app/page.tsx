@@ -4,7 +4,6 @@ import styles from "./page.module.css"
 import NextLink from "next/link"
 import { useSearchParams } from 'next/navigation'
 import { useState } from "react"
-import Scanner_Modal from "./scanner_modal";
 
 export default function HomePage() {
   const [prompt, setPrompt] = useState("")
@@ -105,7 +104,7 @@ export default function HomePage() {
         </p>
       </div>
       <div className={styles["button-chatbox"]}>
-        <NextLink href="/results">
+        <NextLink href="/camera">
           <button className={styles["barcode-button"]} onClick={ScanBarcode}>
             Scan Barcode
           </button>
