@@ -2,11 +2,14 @@
   "name": "webapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://whlpatricia.github.io/Its-Canadian-Eh",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build" 
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -18,12 +21,14 @@
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
+    "@ericblade/quagga2": "^1.8.4",
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
+    "gh-pages": "^6.3.0",
     "typescript": "^5"
   }
 }

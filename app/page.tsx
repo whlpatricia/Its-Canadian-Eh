@@ -2,6 +2,7 @@
 
 import styles from "./page.module.css"
 import NextLink from "next/link"
+import { useSearchParams } from 'next/navigation'
 import { useState } from "react"
 import { useResponse } from "./contexts/ResponseContext";
 import { useRouter } from "next/navigation";
@@ -23,6 +24,8 @@ export default function HomePage() {
   const choosePrompt = (text) => {
     setPrompt(text)
   }
+  const searchParams = useSearchParams();
+  const show = searchParams.get('show');
 
   const askGemini = async (): Promise<void> => {
     console.log("get responses from gemini")
@@ -107,7 +110,7 @@ export default function HomePage() {
         </p>
       </div>
       <div className={styles["button-chatbox"]}>
-        <NextLink href="/results">
+        <NextLink href="/camera">
           <button className={styles["barcode-button"]} onClick={ScanBarcode}>
             Scan Barcode
           </button>
