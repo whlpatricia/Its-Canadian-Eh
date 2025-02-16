@@ -8,7 +8,7 @@ export async function GET(req) {
     });
   }
 
-  const apiKey = "2srmktq5t87q6yb038vjblduxzilr4";  // free API key
+  const apiKey = "m3le2m1hht9xzz1lornfzj17ix4lsr";  // free API key
   const apiUrl = new URL("https://api.barcodelookup.com/v3/products");
   apiUrl.searchParams.append('barcode', barcode);
   apiUrl.searchParams.append('key', apiKey);

@@ -4,8 +4,12 @@ import styles from "./page.module.css"
 import NextLink from "next/link"
 import { useSearchParams } from 'next/navigation'
 import { useState } from "react"
+import { useResponse } from "./contexts/ResponseContext";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+  const { setResponseMessage } = useResponse();
+  const router = useRouter()
   const [prompt, setPrompt] = useState("")
 
   const ScanBarcode = async (): Promise<void> => {
@@ -43,6 +47,8 @@ export default function HomePage() {
       }
       const result = await response.json()
       console.log(result.message)
+      setResponseMessage(result.message);
+      router.push("/results");
     } catch (error) {
       console.error({ error: `Error in askGemini: ${error}` })
     }
@@ -51,7 +57,7 @@ export default function HomePage() {
   return (
     <div className={styles.page}>
       <div className={styles["title-box"]}>
-        <h1 className={styles.title}>It's Canadian, Eh?</h1>
+        <h1 className={styles.title}>Its Canadian, Eh?</h1>
       </div>
       <div className={styles["prompt-container"]}>
         <p
@@ -119,7 +125,7 @@ export default function HomePage() {
             value={prompt} // ✅ Bind input value
             onChange={(e) => setPrompt(e.target.value)}
           ></textarea>
-          <button className={styles["send-button"]} onClick={askGemini}>
+          <button className={styles["send-button"]} onClick={askGemini} disabled={isPromptEmpty}>
             <div className={styles["send-button-wrapper"]}>
               <img
                 src="/maple_leaf.png"

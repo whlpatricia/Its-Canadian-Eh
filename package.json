@@ -12,10 +12,13 @@
     "deploy": "gh-pages -d build" 
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
+    "motion": "^12.4.3",
     "next": "15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
     "@ericblade/quagga2": "^1.8.4",

@@ -68,6 +68,7 @@
 }
 
 .button-chatbox {
+  z-index: 3;
   position: relative;
   height: 180px;
 }
@@ -77,16 +78,16 @@
   background-color: #ad2e24;
   color: #f5f0f6;
   border: none;
-  padding: 5px 30px 3.5vh 30px;
+  padding: 10px 20px;
   cursor: pointer;
   border-radius: 40px;
   font-size: 1.1rem;
   font-weight: 800;
   position: absolute;
-  bottom: 15.5vh;
-  right: 10.5px;
+  bottom: 14vh;
+  right: 11px;
   /* box-shadow: 1px 5px 5px #b64643; */
-  z-index: -1;
+  z-index: 1;
 }
 
 .barcode-button:hover {
@@ -105,6 +106,7 @@
   padding: 10px;
   background-color: white;
   z-index: 2;
+  position: absolute;
 }
 
 @media (max-width: 600px) {
@@ -130,8 +132,8 @@
 
 .send-button {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 2vw;
+  right: 1vh;
   background: none;
   border: none;
   cursor: pointer;

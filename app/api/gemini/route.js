@@ -12,30 +12,33 @@ const constructPrompt = (brandName) => {
   {
     "country": "{country or 'Unknown'}", 
     "list": ["alternative product from Canada 1", "alternative product from Canada 2", ... up to 5]
-  }`;
-};
+  }`
+}
 
 export async function POST(request) {
   console.log("im in gemini")
   try {
     let { prompt } = await request.json()
-    const { searchParams } = new URL(request.url);
-    const mode = searchParams.get("mode");
+    const { searchParams } = new URL(request.url)
+    const mode = searchParams.get("mode")
 
     if (!mode || (mode !== "scan" && mode !== "chat")) {
-      return NextResponse.json({ error: "Invalid mode. Use 'scan' or 'chat'." }, { status: 400 });
+      return NextResponse.json(
+        { error: "Invalid mode. Use 'scan' or 'chat'." },
+        { status: 400 }
+      )
     }
 
     if (mode === "scan") {
-      prompt = constructPrompt(prompt);
+      prompt = constructPrompt(prompt)
     }
 
-    console.log(prompt);
+    console.log(prompt)
 
     const body = {
       contents: [
         {
-          parts: [{ text: prompt + "Make it short." }],
+          parts: [{ text: prompt + "Make it short. I need brand names." }],
         },
       ],
     }
