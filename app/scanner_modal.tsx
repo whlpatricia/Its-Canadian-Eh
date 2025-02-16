@@ -2,14 +2,14 @@
 
 import NextLink from 'next/link';
 import "./modal.css"; // Import CSS file
-import Scanner from './scanner';
+import CameraComponent from './camera';
 
 export default function Scanner_Modal() {
   return (
     <div className="modal">
       <div className="modal-content">
         <h3 className="modal-title">Scan barcode!</h3>
-        <Scanner />
+        <CameraComponent />
         <NextLink href="/" className="modal-close">
           Close
         </NextLink>

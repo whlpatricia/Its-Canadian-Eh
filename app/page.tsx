@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "./page.module.css";
+// import styles from "./page.module.css";
 // import { Suspense } from "react";
 import NextLink from 'next/link';
 // import { headers } from "next/headers";
@@ -16,12 +16,6 @@ export default function HomePage() {
     console.log(result);
   };
 
-  // const headersList = headers();
-  // await var fullUrl = headersList.get("referer") || "Unknown URL";
-  // const GetSearchParams(): void => {
-    
-  // }
-  // console.log(show);
     const searchParams = useSearchParams();
     const show = searchParams.get('show');
 
