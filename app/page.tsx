@@ -14,6 +14,8 @@ export default function HomePage() {
     console.log(result)
   }
 
+  const isPromptEmpty = prompt.trim() === ""
+
   const choosePrompt = (text) => {
     setPrompt(text)
   }
@@ -25,7 +27,7 @@ export default function HomePage() {
     }
 
     try {
-      const response = await fetch(`./api/geminiResponse`, {
+      const response = await fetch(`./api/gemini?mode=chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

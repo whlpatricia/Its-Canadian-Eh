@@ -1,12 +1,11 @@
-Global styles
-* {
+.main{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
-body {
+.body {
   background-color: white;
   color: #333;
 }
@@ -21,6 +20,7 @@ body {
   background-color: #fff;
 }
 
+/* Header with back button */
 .app-header {
   background-color: red;
   width: 100%;
@@ -28,17 +28,79 @@ body {
   padding: 20px;
   color: white;
   font-size: 2.5rem;
-}
-
-.content {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+}
+
+.back-btn {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* Chatbox container */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 600px;
+  width: 100%;
   margin-top: 20px;
 }
 
+/* Chat message bubble */
+.chat-message {
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+/* Left chat bubble */
+.chat-message.left {
+  background-color: white;
+  color: black;
+  align-self: flex-start;
+  border: 1px solid #ccc;
+}
+
+/* Right chat bubble */
+.chat-message.right {
+  background-color: red;
+  color: white;
+  align-self: flex-end;
+}
+
+/* Product details and images */
+.product-details h2 {
+  font-size: 1.5rem;
+  color: black;
+  text-align: center;
+}
+
+.product-images {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.product-images img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Button and input styles */
 .scan-btn {
   background-color: red;
   color: white;
