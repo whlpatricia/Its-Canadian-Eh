@@ -54,7 +54,7 @@ export default function HomePage() {
   return (
     <div className={styles.page}>
       <div className={styles["title-box"]}>
-        <h1 className={styles.title}>It's Canadian, Eh?</h1>
+        <h1 className={styles.title}>Its Canadian, Eh?</h1>
       </div>
       <div className={styles["prompt-container"]}>
         <p
