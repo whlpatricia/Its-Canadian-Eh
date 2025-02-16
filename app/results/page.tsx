@@ -55,19 +55,37 @@ export default function Results() {
           Back
         </NextLink>
         </header>
-        <div className={"prompt-text"} id="promptBox">
-          {promptProp == "" && (
+        {promptProp !== "" && (
+          <div className={"prompt-container"} id="promptBox">
+            {promptProp}
+          </div>
+        )}
+
+        <div className={"result-text"} id="responseBox">
+        {promptProp === "" ? (
+          <>
+            {responseMessage.country === "Canada" ? (
+              <p>This product is Canadian!</p>
+            ) : (
+              <p>This product is not Canadian!</p>
+            )}
+            {responseMessage.list && responseMessage.list.length > 0 && (
+              <>
+                <p>Here are some alternative products:</p>
+                {responseMessage.list.map((item, index) => (
+                  <p key={index}>{item}</p>
+                ))}
+              </>
+            )}
+
             <div className="result-text" id="productBox">
-              <p>You have scanned this product:</p>
-              <p>Product: {title}</p>
-              <p>Brand: {brand}</p>
+              {`You have scanned this product:\nProduct: ${title}\nBrand: ${brand}`}
             </div>
-          )}
-        </div>
-        <div
-          className={"result-text"}
-          id="responseBox">
-          {responseMessage}
-        </div>
+          </>
+        ) : (
+          <div>{responseMessage}</div>
+        )}
+      </div>
+
       </div>
 )};

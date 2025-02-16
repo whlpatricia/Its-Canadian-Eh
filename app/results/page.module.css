@@ -1,0 +1,98 @@
+/* page.module.css */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
+.page {
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* margin: 0;
+  padding: 20px;
+  background-color: #f9f9f9; */
+}
+
+.title-box {
+  height: 11%;
+  background-color: #ad2e24;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 2rem;
+  color: #f5f0f6;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding: 50px 0;
+}
+
+.prompt-container {
+  height: 1000px;
+  display: flex; /* Use flexbox to center the items */
+  flex-direction: column; /* Stack the items vertically */
+  justify-content: center; /* Vertically center the items */
+  align-items: center; /* Horizontally center the items */
+  gap: 20px; /* Adds space between rows */
+  padding: 10px; /* Optional: Adds padding around the container */
+  overflow-y: auto; /* Allows scrolling if content exceeds height */
+  position: relative;
+}
+
+.back-button-container {
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+}
+
+.back-button {
+  /* background-color: #fc544f; */
+  background-color: #ad2e24;
+  color: #f5f0f6;
+  padding: 1vh 2vw;
+  border: none;
+  left: 1vw;
+  top: 3vh;
+  cursor: pointer;
+  border-radius: 4vw;
+  font-size: 1.1rem;
+  font-weight: 800;
+  position: absolute;
+}
+
+.back-button::hover {
+  background-color: #921e1a;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.question,
+.answer {
+  max-width: 60%;
+  padding: 1.5vh 2vw;
+  border-radius: 1.5vw;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  margin: 2vw;
+}
+
+.question {
+  align-self: flex-end;
+  background-color: #921e1a;
+  color: #fff;
+  text-align: right;
+}
+
+.answer {
+  align-self: flex-start;
+  background-color: #eee;
+  color: #000;
+  text-align: left;
+}
