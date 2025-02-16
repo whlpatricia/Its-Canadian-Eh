@@ -53,7 +53,7 @@ export default function Results() {
       <NextLink href="/">
       <button className="back-btn"> &#8592; Back </button>
       </NextLink>
-        <h1>It's Canadian Eh!</h1>
+        <h1>Its Canadian Eh!</h1>
       </header>
       <div>
         <p>Gemini Response: {responseMessage || "No response received"}</p>
@@ -85,19 +85,17 @@ export default function Results() {
           <div className="product-details">
             <h2>{productDetails.brand}</h2>
             <h2>{productDetails.title}</h2>
-             {/* Display images if available */}
-              {productDetails.images && productDetails.images.length > 0 && (
-                <div className="product-images">
-                  {productDetails.images.map((imgUrl, index) => (
-                    <img 
-                      key={index} 
-                      src={imgUrl} 
-                      alt={`Product Image ${index + 1}`} 
-                      style={{ width: '400px', height: 'auto', margin: '5px' }}  // Set image size here
-                    />
-                  ))}
-                </div>
-              )}
+
+            {/* Display only the first image if available */}
+            {productDetails.images && productDetails.images.length > 0 && (
+              <div className="product-image">
+                <img
+                  src={productDetails.images[0]}
+                  alt={`Product Image 1`}
+                  style={{ width: '400px', height: 'auto', margin: '5px' }}  // Set image size
+                />
+              </div>
+            )}
           </div>
         )}
       </div>
