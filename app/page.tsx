@@ -3,7 +3,7 @@
 import styles from "./page.module.css"
 import NextLink from "next/link"
 import { useState } from "react"
-
+import React from "react"; 
 export default function HomePage() {
   const [prompt, setPrompt] = useState("")
 
@@ -42,9 +42,7 @@ export default function HomePage() {
   return (
     <div className={styles.page}>
       <h1>Hello</h1>
-      <NextLink href="/results">
         <button onClick={ScanBarcode}>Scan Barcode</button>
-      </NextLink>
       <div>
         <textarea
           id="promptBox"
@@ -54,7 +52,9 @@ export default function HomePage() {
           value={prompt} // ✅ Bind input value
           onChange={(e) => setPrompt(e.target.value)}
         ></textarea>
-        <button onClick={askGemini}>Send</button>
+        <NextLink href="/results">
+          <button onClick={askGemini}>Send</button>
+        </NextLink>
       </div>
       <p>Entered Prompt: {prompt}</p> {/* Display input for testing */}
     </div>
