@@ -55,7 +55,7 @@ const CameraComponent = () => {
         <div>
             {cameraError ? <p>ERROR INITIALIZING CAMERA ${JSON.stringify(cameraError)} -- DO YOU HAVE PERMISSION?</p> : null}
             {cameras.length === 0 ? <p>Enumerating Cameras, browser may be prompting for permissions beforehand</p> :
-                <form>
+                <form style={{ paddingBottom: '5px' }}>
                     <select onChange={(event) => setCameraId(event.target.value)}>
                         {cameras.map((camera) => (
                             <option key={camera.deviceId} value={camera.deviceId}>
@@ -69,12 +69,12 @@ const CameraComponent = () => {
             <ul className="results">
                 {results.map((result) => (result.codeResult && <Result key={result.codeResult.code} result={result} />))}
             </ul>
-            <div ref={scannerRef} style={{position: 'relative', border: '3px solid red'}}>
+            <div ref={scannerRef} style={{position: 'relative', border: '0px solid red'}}>
                 <canvas className="drawingBuffer" style={{
                     position: 'absolute',
                     top: '0px',
-                    border: '3px solid green',
-                }} width="640" height="480" />
+                    border: '0px solid green',
+                }} width="300" height="20" />
                 {<Scanner scannerRef={scannerRef} cameraId={cameraId} onDetected={(result) => setResults([...results, result])} /> }
             </div>
         </div>

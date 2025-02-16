@@ -2,7 +2,7 @@
 .modal {
     position: fixed;
     inset: 0;
-    background-color: rgba(75, 75, 75, 0.5); /* Gray with opacity */
+    background-color: #851302; /* Gray with opacity */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,7 +43,7 @@
     display: inline-block;
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #3b82f6; /* Blue-500 */
+    background-color: #921e1a; 
     color: white;
     font-size: 1rem;
     font-weight: 500;

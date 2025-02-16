@@ -20,8 +20,8 @@ function getMedianOfCodeErrors(decodedCodes) {
 }
 
 const defaultConstraints = {
-    width: 384, 
-    height: 288, 
+    width: 20, 
+    height: 20, 
 };
 
 const defaultLocatorSettings = {
@@ -48,9 +48,9 @@ const Scanner = ({
     const scanSuccess = useCallback(async (barcode) => {
         try {
             // Send the barcode to an API endpoint
-            const url = "/api/product-info?barcode="+barcode;
-            const response = await fetch(url);
-            console.log
+            // const url = "/api/product-info?barcode="+barcode;
+            // const response = await fetch(url);
+            router.replace("293847");
     
         } catch (error) {
             alert('An error occurred. Please try again.');
