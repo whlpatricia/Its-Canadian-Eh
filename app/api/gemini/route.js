@@ -35,7 +35,7 @@ export async function POST(request) {
     const body = {
       contents: [
         {
-          parts: [{ text: prompt }],
+          parts: [{ text: prompt + "Make it short." }],
         },
       ],
     }
