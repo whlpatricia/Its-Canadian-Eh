@@ -38,7 +38,7 @@ export async function POST(request) {
     const body = {
       contents: [
         {
-          parts: [{ text: prompt + "Make it short. I need brand names." }],
+          parts: [{ text: prompt + "Make it short. I need brand names. Do not use markdown in your response." }],
         },
       ],
     }
