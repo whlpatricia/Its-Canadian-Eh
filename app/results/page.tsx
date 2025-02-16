@@ -12,7 +12,7 @@ import { useResponse } from "../contexts/ResponseContext";
 import { TypewriterEffect } from "@/app/components/ui/typewriter-effect"; 
 
 export default function Results() {
-  const {responseMessage } = useResponse();
+  const { responseMessage, title, brand } = useResponse();
   const [barcode, setBarcode] = useState<string>('');
   const [productDetails, setProductDetails] = useState<ProductDetails | null>(null);
   const [words, setWords] = useState<{ text: string; className?: string }[]>([]);

@@ -6,8 +6,8 @@ dotenv.config()
 const geminiURL = process.env.NEXT_PUBLIC_GEMINI_URL
 const apiKey = process.env.NEXT_PUBLIC_API_KEY
 
-const constructPrompt = (brandName) => {
-  return `What country is the brand "${brandName}" from? If the brand name is unrecognized or the country cannot be determined, 
+const constructPrompt = (productName) => {
+  return `What country is the product "${productName}" from? If the product/brand name is unrecognized or the country cannot be determined, 
   return "Unknown" for the country. Respond strictly in the following JSON format, with no additional text before or after the JSON:
   {
     "country": "{country or 'Unknown'}", 
@@ -50,7 +50,7 @@ export async function POST(request) {
       },
       body: JSON.stringify(body),
     })
-    console.log(`response is: ${response}`)
+    console.log(`in gemini.js: response is: ${response}`)
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`)
     }
@@ -58,6 +58,6 @@ export async function POST(request) {
     const message = result.candidates[0].content.parts[0].text
     return NextResponse.json({ message: message })
   } catch (error) {
-    console.error({ error: `Error in askGemini: ${error}` })
+    console.error({ error: `Error in api/gemini: ${error}` })
   }
 }

@@ -9,25 +9,23 @@
     "start": "next start",
     "lint": "next lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" 
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
     "motion": "^12.4.3",
     "next": "15.1.7",
+    "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
     "@ericblade/quagga2": "^1.8.4",
-    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.7",
     "gh-pages": "^6.3.0",
     "typescript": "^5"
   }

@@ -2,6 +2,7 @@ import { useCallback, useLayoutEffect } from 'react';
 import PropTypes from 'prop-types';
 import Quagga from '@ericblade/quagga2';
 import { useRouter } from "next/navigation";
+import { useResponse } from "../contexts/ResponseContext";
 
 function getMedian(arr) {
     const newArr = [...arr]; // copy the array before sorting, otherwise it mutates the array passed in, which is generally undesireable
@@ -43,15 +44,45 @@ const Scanner = ({
     decoders = defaultDecoders,
     locate = true,
 }) => {
+    const { setTitle, setBrand, setResponseMessage } = useResponse();
     const router = useRouter();
 
     const scanSuccess = useCallback(async (barcode) => {
         try {
-            // Send the barcode to an API endpoint
-            // const url = "/api/product-info?barcode="+barcode;
-            // const response = await fetch(url);
-            router.replace("293847");
-    
+            // get product info from barcode api
+            const url = `../api/product-info?barcode=${barcode}`;
+            const barcodeApiResponse = await fetch(url);
+            const barcodeApiResult = await barcodeApiResponse.json();
+            console.log(barcodeApiResult);
+
+            // store title and brand in context
+            setTitle(barcodeApiResult.title);
+            setBrand(barcodeApiResult.brand);
+            console.log("stored title and brand in context")
+
+            // get country + list of alternatives from gemini api
+            const body = {
+                prompt: barcodeApiResult.title,
+            }
+
+            const geminiResponse = await fetch(`../api/gemini?mode=scan`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(body),
+            })
+        
+            console.log(`in scanner.js: response is: ${geminiResponse}`)
+            if (!geminiResponse.ok) {
+                throw new Error(`Error: ${geminiResponse.statusText}`)
+            }
+            const geminiResult = await geminiResponse.json();
+            console.log(geminiResult.message);
+            setResponseMessage(geminiResult.message);
+
+            // redirect to results page
+            router.push("/results");
         } catch (error) {
             alert('An error occurred. Please try again.');
         }
