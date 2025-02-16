@@ -8,8 +8,10 @@ interface ProductDetails {
 import React, { useState } from 'react';
 import NextLink from "next/link"
 import styles from "./page.module.css"
+import { useResponse } from "../contexts/ResponseContext";
 
-const App: React.FC = () => {
+export default function Results() {
+  const { responseMessage } = useResponse();
   const [barcode, setBarcode] = useState<string>('');
   const [productDetails, setProductDetails] = useState<ProductDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -51,8 +53,11 @@ const App: React.FC = () => {
       <NextLink href="/">
       <button className="back-btn"> &#8592; Back </button>
       </NextLink>
-        <h1>Its Canadian Eh!</h1>
+        <h1>It's Canadian Eh!</h1>
       </header>
+      <div>
+        <p>Gemini Response: {responseMessage || "No response received"}</p>
+      </div>
       <div className="chat-container">
         {/* Chatbox bubbles */}
         <div className="chat-message left">
@@ -100,7 +105,5 @@ const App: React.FC = () => {
     </div>
   );
 };
-
-export default App;
 
 
