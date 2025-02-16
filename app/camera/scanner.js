@@ -21,8 +21,8 @@ function getMedianOfCodeErrors(decodedCodes) {
 }
 
 const defaultConstraints = {
-    width: { max: 200 },
-    height: { max: 200 },
+    width: 20, 
+    height: 20, 
 };
 
 const defaultLocatorSettings = {
@@ -44,7 +44,7 @@ const Scanner = ({
     decoders = defaultDecoders,
     locate = true,
 }) => {
-    const { setTitle, setBrand, setResponseMessage, setPromptProp } = useResponse();
+    const { setTitle, setBrand, setResponseMessage, setPromptProp} = useResponse();
     const router = useRouter();
 
     const scanSuccess = useCallback(async (barcode) => {
@@ -80,7 +80,7 @@ const Scanner = ({
             const geminiResult = await geminiResponse.json();
             console.log(geminiResult.message);
             setResponseMessage(geminiResult.message);
-            setPromptProp("nothing");
+            setPromptProp("");
 
             // redirect to results page
             router.push("/results");

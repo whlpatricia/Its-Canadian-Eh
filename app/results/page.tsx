@@ -56,7 +56,13 @@ export default function Results() {
         </NextLink>
         </header>
         <div className={"prompt-text"} id="promptBox">
-          {promptProp == "nothing" ? "": promptProp}
+          {promptProp == "" && (
+            <div className="result-text" id="productBox">
+              <p>You have scanned this product:</p>
+              <p>Product: {title}</p>
+              <p>Brand: {brand}</p>
+            </div>
+          )}
         </div>
         <div
           className={"result-text"}

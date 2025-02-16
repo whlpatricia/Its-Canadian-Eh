@@ -8,7 +8,7 @@ const apiKey = process.env.NEXT_PUBLIC_API_KEY
 
 const constructPrompt = (productName) => {
   return `What country is the product "${productName}" from? If the product/brand name is unrecognized or the country cannot be determined, 
-  return "Unknown" for the country. Respond strictly in the following JSON format, with no additional text before or after the JSON:
+  return "Unknown" for the country. Respond strictly in the following JSON format, with no additional text before or after the JSON. The JSON reponse should be in plain text.:
   {
     "country": "{country or 'Unknown'}", 
     "list": ["alternative product from Canada 1", "alternative product from Canada 2", ... up to 5]
@@ -38,7 +38,7 @@ export async function POST(request) {
     const body = {
       contents: [
         {
-          parts: [{ text: prompt + "Make it short. I need brand names. Do not use markdown in your response." }],
+          parts: [{ text: prompt + "Make it short. I need brand names. Do not use markdown in your response, but you may use commas." }],
         },
       ],
     }
